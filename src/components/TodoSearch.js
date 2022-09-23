@@ -2,7 +2,7 @@ import React from "react";
 
 export default function TodoSearch({ searchInput, setsearchInput, filter }) {
   return (
-    <div class="card" style={{ marginRight: "30px" }}>
+    <div class="card" style={{ marginRight: "0px" }}>
       <div class="card-body">
         <div className="d-flex">
           <div

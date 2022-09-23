@@ -1,13 +1,19 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import React, { useState } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { BrowserRouter, Routes, Route, json } from "react-router-dom";
 import Data from "./data.json";
 import Home from "./pages/Home";
 import Add from "./pages/Add";
 import Edit from "./pages/Edit";
 
+let dataLocal = Data;
+const dataLocalStr = localStorage.getItem("data");
+if (dataLocalStr) dataLocal = JSON.parse(dataLocalStr);
 export default function App() {
-  const [data, setdata] = useState(Data);
+  const [data, setdata] = useState(dataLocal);
+  useEffect(() => {
+    localStorage.setItem("data", JSON.stringify(data));
+  }, [data]);
   return (
     <BrowserRouter>
       <Routes>

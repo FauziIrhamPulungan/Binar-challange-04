@@ -29,18 +29,18 @@ export default function Home({ data, setdata }) {
     setfilterData(data);
   }, [data]);
   return (
-    <div className="row">
-      <div className="col-10 mx-auto col-md-8 mt-4">
-        <h1 className="text-capitalize text-center">TodoSearch</h1>
+    <div className="row" style={{ marginBottom: "100px" }}>
+      <div className="col-10 mx-auto col-md-7 mt-1">
+        <h2 className="text-capitalize text-center">TodoSearch</h2>
         <TodoSearch
           searchInput={searchInput}
           setsearchInput={setsearchInput}
           filter={filter}
         />
       </div>
-      <div className="row">
-        <div className="col-10 mx-auto col-md-8 mt-3">
-          <h1 className="text-capitalize text-center">TodoList</h1>
+      <div className="center">
+        <div className="col-5 mx-auto col-md-7 mt-1">
+          <h2 className="text-capitalize text-center">TodoList</h2>
           <TodoList
             Data={filterData}
             setdata={setdata}

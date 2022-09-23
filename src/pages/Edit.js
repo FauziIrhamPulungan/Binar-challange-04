@@ -3,15 +3,18 @@ import { useNavigate, useParams } from "react-router-dom";
 
 export default function Edit({ setdata, data }) {
   const { id } = useParams();
-  const object = data.find((el) => el.id == id);
+  const objectIndex = data.findIndex((el) => el.id == id);
+  const object = data[objectIndex];
 
   const navigate = useNavigate();
   const [input, setinput] = useState(object.task);
   function EditTask() {
-    const newdata = { id: id, task: input, complete: false };
-    setdata((data) => [...data, newdata]);
+    const newdata = [...data];
+    newdata[objectIndex] = { ...object, task: input };
+    setdata([...newdata]);
     navigate("/");
   }
+
   return (
     <div className="row">
       <div className="col-10 mx-auto col-md-8 mt-4">
