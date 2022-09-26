@@ -5,7 +5,6 @@ import TodoList from "../components/TodoList";
 export default function Home({ data, setdata }) {
   const [filterData, setfilterData] = useState(data);
   const [searchInput, setsearchInput] = useState("");
-  console.log(searchInput);
   function filter(type) {
     if (type === "done") {
       const filtered = data.filter((object) => object.complete);
